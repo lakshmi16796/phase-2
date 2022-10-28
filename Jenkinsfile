@@ -20,14 +20,14 @@ pipeline {
     {
       steps {
         script {
-        LINE = ' '
+        
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         pwd 
         ls
         echo env.FEATURE
-        LINE = sed -n '/docker/p' sample.txt | head -1
-        echo env.LINE
+        echo sed -n '/docker/p' sample.txt | head -1 >> $LINE
+        echo $LINE
         '''
         }  
     }
