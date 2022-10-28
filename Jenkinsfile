@@ -19,16 +19,19 @@ pipeline {
     stage ("Edit")
     {
       steps {
+        script {
+        LINE = ' '
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         pwd 
         ls
         echo env.FEATURE
-        env.LINE = sed -n '/docker/p' sample.txt | head -1
+        LINE = sed -n '/docker/p' sample.txt | head -1
         echo env.LINE
         '''
         }  
     }
+  }
    }
   }
 }
