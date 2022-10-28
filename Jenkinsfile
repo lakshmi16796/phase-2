@@ -19,8 +19,12 @@ pipeline {
     stage ("Edit")
     {
       steps {
-        
+        dir("/home/lakshmi/Desktop") {
+        pwd 
+        ls
         echo env.FEATURE
+        sed -n '/docker/p' sample.txt | head -1
+        }  
     }
    }
   }
