@@ -19,9 +19,9 @@ pipeline {
     stage ("Edit")
     {
       steps {
-        LINE = ""
-        script {
         
+        script {
+        LINE = ""
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         pwd 
