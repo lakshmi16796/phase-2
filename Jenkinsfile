@@ -23,7 +23,7 @@ pipeline {
         script {
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
-        line = $""
+        
         pwd 
         ls
         echo env.FEATURE
