@@ -20,10 +20,12 @@ pipeline {
     {
       steps {
         dir("/home/lakshmi/Desktop") {
+        sh '''#!/bin/bash
         pwd 
         ls
         echo env.FEATURE
         sed -n '/docker/p' sample.txt | head -1
+        '''
         }  
     }
    }
