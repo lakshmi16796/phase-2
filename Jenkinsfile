@@ -24,6 +24,7 @@ pipeline {
         script {
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
+        echo "Entered input is"
         echo "$feature"
         line=$(sed -n "/$feature/p" sample.txt | head -1)
         echo "$line"
