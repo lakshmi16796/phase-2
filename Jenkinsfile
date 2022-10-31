@@ -8,7 +8,7 @@ pipeline {
           echo "Docker"
           echo "Xen"
           echo "All"
-          line = input message: 'Please enter the feature you want to build with',
+          feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
@@ -26,7 +26,7 @@ pipeline {
         
         pwd 
         ls
-        line=$(sed -n '/Docker/p' sample.txt | head -1)
+        line=$(sed -n '/$feature/p' sample.txt | head -1)
         echo "$line"
        
         '''
