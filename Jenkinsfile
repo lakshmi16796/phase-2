@@ -27,9 +27,8 @@ pipeline {
         pwd 
         ls
         echo "$env.FEATURE"
-        sed -n '/docker/p' sample.txt | head -1 <<< "$line"
-        echo "$line"
-        
+        sed -n '/docker/p' sample.txt | head -1 
+       
         '''
         }  
     }
