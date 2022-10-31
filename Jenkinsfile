@@ -12,6 +12,7 @@ pipeline {
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
+          echo "$feature"
         }
       }
     }
@@ -24,9 +25,7 @@ pipeline {
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         
-        pwd 
-        ls
-        line=$(sed -n '/$feature/p' sample.txt | head -1)
+        line=$(sed -n "/$feature/p" sample.txt | head -1)
         echo "$line"
        
         '''
