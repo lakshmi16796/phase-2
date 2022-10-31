@@ -8,7 +8,7 @@ pipeline {
           echo "Docker"
           echo "Xen"
           echo "All"
-          env.FEATURE = input message: 'Please enter the feature you want to build with',
+          line = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
@@ -27,7 +27,8 @@ pipeline {
         pwd 
         ls
         echo "$env.FEATURE"
-        sed -n '/docker/p' sample.txt | head -1 
+        sed -n '/docker/p' sample.txt | head -1 <<< "$line"
+        echo $line
        
         '''
         }  
