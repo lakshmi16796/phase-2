@@ -25,7 +25,7 @@ pipeline {
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         
-        line=$(sed -n "/$feature/p" sample.txt | head -1)
+        line=$(sed -n "/\$feature/p" sample.txt | head -1)
         echo "$line"
        
         '''
