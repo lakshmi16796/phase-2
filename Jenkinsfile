@@ -29,7 +29,7 @@ pipeline {
         echo "$line"
         num=$(echo "$line" | grep -o -E '[0-9]+')
         echo "$num"
-        less +"$num" sample.txt | cut -c 2-
+        less +"$num" sample.txt | sed 's/#/ /' sample.txt
         '''
         }  
     }
