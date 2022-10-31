@@ -29,7 +29,6 @@ pipeline {
         echo "$line"
         num=$(echo "$line" | grep -o -E '[0-9]+')
         echo "$num"
-        sudo -s chown root:jenkins /tmp/*
         sed -i "$num s/#/ /" sample.txt
         '''
         }  
