@@ -32,7 +32,7 @@ pipeline {
         num=$(echo "$line" | grep -o -E '[0-9]+')
         echo "$num"
         sed -i "$num s/#/ /" sample.txt
-        
+        cat sample.txt
         
         '''
         }  
