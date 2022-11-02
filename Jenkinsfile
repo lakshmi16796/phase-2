@@ -18,7 +18,7 @@ pipeline {
       steps {
         
         script {
-        feature = input message: 'Please enter the feature you want to build with',
+        def feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
