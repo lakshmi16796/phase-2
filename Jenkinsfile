@@ -22,6 +22,7 @@ pipeline {
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
+        echo "Entered feature is "
         echo "$feature"
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
