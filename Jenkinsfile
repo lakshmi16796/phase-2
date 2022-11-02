@@ -8,11 +8,7 @@ pipeline {
           echo "Docker"
           echo "Xen"
           echo "All"
-          feature = input message: 'Please enter the feature you want to build with',
-                             parameters: [string(defaultValue: '',
-                                          description: '',
-                                          name: 'Feature')]
-          echo "$feature"
+          
         }
       }
     }
@@ -22,6 +18,11 @@ pipeline {
       steps {
         
         script {
+        feature = input message: 'Please enter the feature you want to build with',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Feature')]
+        echo "$feature"
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
         
