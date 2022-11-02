@@ -1,21 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage ("Prompt for input") {
-      steps {
-        script {
-         /* echo "Features Options"
-          echo "Docker"
-          echo "Xen"
-          echo "All"
-          env.feature = input message: 'Please enter the feature you want to build with',
-                             parameters: [string(defaultValue: '',
-                                          description: '',
-                                          name: 'Feature')]
-          echo "$feature" */
-        }
-      }
-    }
     
     stage ("Edit")
     {
