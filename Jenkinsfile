@@ -31,7 +31,7 @@ pipeline {
         echo "$line"
         num=$(echo "$line" | grep -o -E '[0-9]+')
         echo "$num"
-        echo >> sed -i "$num s/#/ /" sample.txt
+        sed -i "$num s/#/ /" sample.txt
         
         
         '''
