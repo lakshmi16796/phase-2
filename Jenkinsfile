@@ -34,6 +34,9 @@ pipeline {
         sed -i "$num s/#/ /" sample.txt
         cat sample.txt
         
+        sed -i "$num s/ /#/1" sample.txt
+        cat sample.txt
+        
         '''
         }  
     }
