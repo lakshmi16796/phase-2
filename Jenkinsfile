@@ -33,9 +33,9 @@ pipeline {
         
         #extracting the line numbers 
         array=()
-        array+=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+        n+=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "line number is"
-        printf '%s\n' "${array[1]}"
+        printf '%s\n' "$n"
         
         
         #Enabling the mentioned feature for build in local.conf
