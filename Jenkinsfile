@@ -34,7 +34,7 @@ pipeline {
         #extracting the line numbers 
         array=()
         #n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
-	n=$(echo "$line" | sed -e 's/#/,/2g' -e 's/^[a-z]//g') ; 
+	n=$(echo "$line" | sed -e 's/#/,/2g' -e 's/#//1' -e 's/^[a-z]//g') ; 
 	echo "line number is"
 	echo $n
         printf '%s\n' "$n"
