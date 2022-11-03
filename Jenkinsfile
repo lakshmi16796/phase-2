@@ -32,12 +32,18 @@ pipeline {
         echo "$line"
         
         #extracting the line numbers 
-        num=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+        array=()
+        array+=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "line number is"
-        echo "$num"
+        printf '%s\n' "${array[@]}"
+        
         
         #Enabling the mentioned feature for build in local.conf
-        sed -i "$num s/#/ /" sample.txt
+        for n in ${array[@]}; 
+        do
+           sed -i "${array[n]} s/#/ /" sample.txt
+        done
+        
         cat sample.txt
         
         #Disabling the feature after build is complete in local.conf
