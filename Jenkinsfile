@@ -37,10 +37,9 @@ pipeline {
 	n=$(echo "$line" | sed -e 's/#/,/2g' -e 's/#//1' -e 's/[a-z]//g' -e 's/[A-Z]//g') ; 
 	echo "line number is"
 	echo $n
-        printf '%s\n' "$n"
-	
-        
-        
+	IFS=" " read -a array <<< $n
+	echo "Number of elements in the array: ${#array[@]}"
+        	             
         #Enabling the mentioned feature for build in local.conf
                
         for x in "${array[@]}"
