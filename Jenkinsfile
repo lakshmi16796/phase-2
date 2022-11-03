@@ -42,7 +42,6 @@ pipeline {
                
         for x in "${array[@]}"
         do
-	  echo x
 	  echo "$x"
           sed -i "$x s/#/ /" sample.txt
         done
