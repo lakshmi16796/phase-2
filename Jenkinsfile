@@ -33,11 +33,12 @@ pipeline {
         
         #extracting the line numbers 
         array=()
-        n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
-        echo "line number is"
+        #n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+	n=$(echo "$line" | sed 's/[^0-9]*//g') ; 
+	echo "line number is"
+	echo $n
         printf '%s\n' "$n"
-	IFS=" " read -a myarray <<< $myvar
-	echo "Number of elements in the array: ${#array[@]}"
+	
         
         
         #Enabling the mentioned feature for build in local.conf
