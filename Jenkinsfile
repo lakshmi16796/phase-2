@@ -56,7 +56,7 @@ pipeline {
         for x in "${array[@]}"
         do
 	  echo "$x"
-          sed -i "$x s//#/" sample.txt
+          sed -i "$x s/ /#/1" sample.txt
         done        
         cat sample.txt 
 	
