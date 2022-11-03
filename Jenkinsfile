@@ -30,6 +30,7 @@ pipeline {
         #Locating the line with mentioned feature
         line=$(sed -n "/Docker/p" sample.txt | head -1)
         echo "$line"
+	
         
         #extracting the line numbers 
         array=()
@@ -39,18 +40,27 @@ pipeline {
 	echo $n
 	IFS="," read -a array <<< $n
 	#echo "Number of elements in the array: ${#array[@]}"
+	
+	
         	             
-        #Enabling the mentioned feature for build in local.conf
-               
+        #Enabling the mentioned feature for build in local.conf         
         for x in "${array[@]}"
         do
 	  echo "$x"
           sed -i "$x s/#/ /" sample.txt
-        done
+        done        
+        cat sample.txt                
         
-        cat sample.txt
-                
-        '''
+		
+	#Disabling the feature after build is complete in local.conf
+        for x in "${array[@]}"
+        do
+	  echo "$x"
+          sed -i "$x s//#/" sample.txt
+        done        
+        cat sample.txt 
+	
+	'''
         }  
     }
   }
