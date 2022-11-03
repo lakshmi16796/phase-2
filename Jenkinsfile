@@ -45,11 +45,7 @@ pipeline {
         done
         
         cat sample.txt
-        
-        #Disabling the feature after build is complete in local.conf
-        sed -i "$num s/ /#/1" sample.txt
-        cat sample.txt
-        
+                
         '''
         }  
     }
