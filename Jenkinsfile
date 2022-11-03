@@ -33,6 +33,7 @@ pipeline {
         
         #extracting the line numbers 
         num=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+        echo "line number is"
         echo "$num"
         
         #Enabling the mentioned feature for build in local.conf
