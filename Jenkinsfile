@@ -32,7 +32,7 @@ pipeline {
         echo "$line"
         
         #extracting the line numbers 
-        num=$(echo "$line" | grep -x -E '[[:blank:]]*[0-9]+[[:blank:]]*')
+        num=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "$num"
         
         #Enabling the mentioned feature for build in local.conf
