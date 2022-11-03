@@ -33,7 +33,7 @@ pipeline {
         
         #extracting the line numbers 
         array=()
-        n+=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+        n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "line number is"
         printf '%s\n' "$n"
 	read -a array <<< $n
