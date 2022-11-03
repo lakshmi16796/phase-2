@@ -42,8 +42,8 @@ pipeline {
                
         for i in "${array[@]}"
         do
-	        echo "$i"
-          sed -i "${array[i]} s/#/ /" sample.txt
+	  echo "$i"
+          sed -i "$i s/#/ /" sample.txt
         done
         
         cat sample.txt
