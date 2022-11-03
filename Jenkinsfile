@@ -41,7 +41,7 @@ pipeline {
         #Enabling the mentioned feature for build in local.conf
         for n in ${array[@]}; 
         do
-           sed -i "${array[n]} s/#/ /" sample.txt
+           sed -i "${array[n+1]} s/#/ /" sample.txt
         done
         
         cat sample.txt
