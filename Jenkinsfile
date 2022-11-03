@@ -36,7 +36,7 @@ pipeline {
         n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "line number is"
         printf '%s\n' "$n"
-	read -a array <<< $n
+	IFS=" " read -a myarray <<< $myvar
 	echo "Number of elements in the array: ${#array[@]}"
         
         
