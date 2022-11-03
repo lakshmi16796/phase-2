@@ -36,6 +36,8 @@ pipeline {
         n+=$(echo "$line" | grep -Eo '[0-9]{1,4}')
         echo "line number is"
         printf '%s\n' "$n"
+	read -a array <<< $n
+	echo "Number of elements in the array: ${#array[@]}"
         
         
         #Enabling the mentioned feature for build in local.conf
