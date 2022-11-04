@@ -22,6 +22,7 @@ pipeline {
 	echo "inside shell"
 	#echo "${env.feature}"
 	input=$(printenv feature)
+	echo "$input"
        	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
