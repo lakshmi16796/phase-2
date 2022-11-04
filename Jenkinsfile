@@ -24,7 +24,7 @@ pipeline {
         sh '''#!/bin/bash
 	
 	
-        def feature = input message: 'Please enter the feature you want to build with',
+        feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
