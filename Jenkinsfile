@@ -25,7 +25,7 @@ pipeline {
 	echo "$input"
        	
         #Locating the line with mentioned feature
-        line=$(sed -n "/($feature)/p" sample.txt | head -1)
+        line=$(sed -n "/$input/p" sample.txt | head -1)
         echo "$line"
 	
         
