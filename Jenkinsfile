@@ -28,7 +28,10 @@ pipeline {
 		
 		
         dir("/home/lakshmi/Desktop") {
-        sh """#!/bin/bash	    
+        sh """#!/bin/bash
+	
+	echo "inside shell"
+	echo "$feature"
        	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
