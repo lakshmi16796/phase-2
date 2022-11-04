@@ -16,7 +16,7 @@ pipeline {
         echo "Entered feature is "
 	echo "${env.feature}"
 		
-        dir("/home/lakshmi/Desktop") {
+        dir("/home/lakshmi/dell_pods/poky/build/conf") {
         sh '''#!/bin/bash
 	
 	echo "inside shell"
@@ -25,7 +25,7 @@ pipeline {
 	echo "$input"
        	
         #Locating the line with mentioned feature
-        line=$(sed -n "/$input/p" sample.txt | head -1)
+        line=$(sed -n "/$input/p" local.conf | head -1)
         echo "$line"
 	
         
@@ -42,18 +42,18 @@ pipeline {
         for x in "${array[@]}"
         do
 	  echo "$x"
-          sed -i "$x s/#/ /" sample.txt
+          sed -i "$x s/#/ /" local.conf
         done        
-        cat sample.txt                
+        #cat sample.txt                
         
 		
 	#Disabling the feature after build is complete in local.conf
-        for x in "${array[@]}"
-        do
-	  echo "$x"
-          sed -i "$x s/ /#/1" sample.txt
-        done        
-        cat sample.txt 
+        #for x in "${array[@]}"
+        #do
+	 #echo "$x"
+          #sed -i "$x s/ /#/1" sample.txt
+        #done        
+        #cat sample.txt 
 	
 	'''
         }  
