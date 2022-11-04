@@ -34,14 +34,14 @@ pipeline {
 	echo "$feature"
        	
         #Locating the line with mentioned feature
-        line=$(sed -n "/($feature)/p" sample.txt | head -1)
+        $line=(sed -n "/($feature)/p" sample.txt | head -1)
         echo "$line"
 	
         
         #extracting the line numbers 
         array=()
         #n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
-	n=$(echo "$line" | sed -e 's/#/,/2g' -e 's/#//1' -e 's/[a-z]//g' -e 's/[A-Z]//g') ; 
+	$n=(echo "$line" | sed -e 's/#/,/2g' -e 's/#//1' -e 's/[a-z]//g' -e 's/[A-Z]//g') ; 
 	echo "line number is"
 	echo $n
 	IFS="," read -a array <<< $n
