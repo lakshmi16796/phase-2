@@ -28,7 +28,7 @@ pipeline {
         sh '''#!/bin/bash
         
         #Locating the line with mentioned feature
-        line=$(sed -n "/Docker/p" sample.txt | head -1)
+        line=$(sed -n "/$feature/p" sample.txt | head -1)
         echo "$line"
 	
         
