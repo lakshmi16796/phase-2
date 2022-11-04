@@ -17,21 +17,19 @@ pipeline {
     {
       steps {
         
-       script {
-		
-		
-        dir("/home/lakshmi/Desktop") {
-        sh '''#!/bin/bash
-	
-	
-        feature = input message: 'Please enter the feature you want to build with',
+        script {
+	       
+	def feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
         echo "Entered feature is "
         echo "$feature"
-        
-	
+		
+		
+        dir("/home/lakshmi/Desktop") {
+        sh """#!/bin/bash	    
+       	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
         echo "$line"
@@ -65,7 +63,7 @@ pipeline {
         done        
         cat sample.txt 
 	
-	'''
+	"""
         }  
     }
   }
