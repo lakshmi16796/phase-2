@@ -28,7 +28,9 @@ pipeline {
         sh '''#!/bin/bash
         
 	echo "inside script"
-	echo "$feature"
+	echo "Enter the user name: "  
+	read first_name  
+	echo "$first_name"
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
         echo "$line"
