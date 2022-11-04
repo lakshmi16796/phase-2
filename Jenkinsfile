@@ -16,15 +16,12 @@ pipeline {
         echo "Entered feature is "
 	echo "${env.feature}"
 		
-	sh 'echo ${env.feature}'
-		
-		
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
 	
 	echo "inside shell"
-	echo "${env.feature}"
-	#printenv
+	#echo "${env.feature}"
+	printenv feature
        	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
