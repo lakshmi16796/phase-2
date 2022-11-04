@@ -2,33 +2,26 @@ pipeline {
   agent any
   stages {
 	  
-	  
-    environment{
-          branch1 = 'Docker'
-          branch2 = 'Xen'
-          branch3 = 'X11'
-        }
 
-    
     stage ("Edit")
     {
       steps {
         
         script {
-		
- 	
-	       
-	env.FEATURE = input message: 'Please enter the feature you want to build with',
-                             parameters: [choice(name: 'Feature entered', choices: "${branch1}\n${branch2}\n${branch3}", description: 'Enter the feature name')]
+	 		       
+	env.feature = input message: 'Please enter the feature you want to build with',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Feature')]
         echo "Entered feature is "
-		echo "${FEATURE}"
+	echo "${env.feature}"
 		
 		
         dir("/home/lakshmi/Desktop") {
         sh '''#!/bin/bash
 	
 	echo "inside shell"
-	echo "${FEATURE}"
+	echo "${env.feature}"
        	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
