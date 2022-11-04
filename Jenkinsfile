@@ -16,7 +16,7 @@ pipeline {
         echo "Entered feature is "
 	echo "${env.feature}"
 		
-	sh 'echo "${env.feature}"'
+	sh 'echo ${env.feature}'
 		
 		
         dir("/home/lakshmi/Desktop") {
