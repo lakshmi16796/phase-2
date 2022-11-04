@@ -18,7 +18,7 @@ pipeline {
 		
 		
         dir("/home/lakshmi/Desktop") {
-        sh '''#!/bin/bash
+        sh """#!/bin/bash
 	
 	echo "inside shell"
 	echo ${env.feature}
@@ -54,7 +54,7 @@ pipeline {
         done        
         cat sample.txt 
 	
-	'''
+	"""
         }  
     }
   }
