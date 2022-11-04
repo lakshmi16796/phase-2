@@ -45,10 +45,8 @@ pipeline {
 	echo "line number is"
 	echo $n
 	IFS="," read -a array <<< $n
-	#echo "Number of elements in the array: ${#array[@]}"
 	
-	
-        	             
+	        	             
         #Enabling the mentioned feature for build in local.conf         
         for x in "${array[@]}"
         do
