@@ -17,20 +17,21 @@ pipeline {
     {
       steps {
         
-        script {
+       script {
+		
+		
+        dir("/home/lakshmi/Desktop") {
+        sh '''#!/bin/bash
+	
+	
         def feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
         echo "Entered feature is "
         echo "$feature"
-        dir("/home/lakshmi/Desktop") {
-        sh '''#!/bin/bash
         
-	echo "inside script"
-	echo "Enter the user name: "  
-	read first_name  
-	echo "$first_name"
+	
         #Locating the line with mentioned feature
         line=$(sed -n "/($feature)/p" sample.txt | head -1)
         echo "$line"
