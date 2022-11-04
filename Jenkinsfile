@@ -40,7 +40,7 @@ pipeline {
         
         #extracting the line numbers 
         array=()
-        #n=$(echo "$line" | grep -Eo '[0-9]{1,4}')
+        
 	$n=(echo "$line" | sed -e 's/#/,/2g' -e 's/#//1' -e 's/[a-z]//g' -e 's/[A-Z]//g') ; 
 	echo "line number is"
 	echo $n
