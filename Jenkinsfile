@@ -46,7 +46,7 @@ pipeline {
         done        
         cat sample.txt    
 	
-	cd dell_pods/poky
+	cd /home/lakshmi/dell_pods/poky
 	echo "moved to directory"
 	pwd
         
