@@ -44,7 +44,11 @@ pipeline {
 	  echo "$x"
           sed -i "$x s/#/ /" sample.txt
         done        
-        cat sample.txt                
+        cat sample.txt    
+	
+	cd dell_pods/poky
+	echo "moved to directory"
+	pwd
         
 		
 	#Disabling the feature after build is complete in local.conf
