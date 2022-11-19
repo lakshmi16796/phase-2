@@ -32,7 +32,7 @@ pipeline {
 		line=$(sed -n "/$i/p" local.conf | head -1)
         	echo "$line"
 		
-		n=$(grep -rin $input | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		n=$(grep -rin $i | head -1 | awk '{print $1 }' | cut -d: -f 2)
 		echo "Line number is"
 		echo "$n"
 	done
