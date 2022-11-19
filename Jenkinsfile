@@ -15,9 +15,9 @@ pipeline {
                                           name: 'Feature')]
         echo "Entered feature is "
 	echo "${env.feature}"
-	input=${env.feature}
-	echo "input is"
-	echo "$input"
+	///input=${env.feature}
+	//echo "input is"
+	//echo "$input"
 	
 	dir("/home/lakshmi/test/local") {
         sh '''#!/bin/bash
