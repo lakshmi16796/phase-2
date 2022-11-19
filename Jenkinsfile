@@ -9,18 +9,9 @@ pipeline {
         
         script {
 	 		       
-	def testParam = checkBox("opt", // name
-                "opt1,opt2,opt3", // values
-                "opt1", //default value
-                0, //visible item cnt
-                "Multi-select", // description
-                )
-
-	properties([parameters([testParam])])
-
-	node {
-  	  echo "${params.opt}"
-	}
+	booleanParam(defaultValue: false, name: 'ALL', description: 'Process all'),
+	booleanParam(defaultValue: false, name: 'OPTION_1', description: 'Process option 1'),
+	booleanParam(defaultValue: false, name: 'OPTION_2', description: 'Process options 2'),
 	
       	}  
     }
