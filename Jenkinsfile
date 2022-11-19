@@ -9,27 +9,18 @@ pipeline {
         
         script {
 	 		       
-	env.feature = input message: 'Please enter the feature you want to build with',
-                             parameters: [string(defaultValue: '',
-                                          description: '',
-                                          name: 'Feature')]
-        echo "Entered feature is "
-	echo "${env.feature}"
-		
-        dir("/home/lakshmi/test/local") {
-        sh '''#!/bin/bash
-	
-	echo "inside shell"
-	#echo "${env.feature}"
-	input=$(printenv feature)
-	echo "your input"
-	echo "$input"
-       	
-        #Locating the line with mentioned feature
-        line=$(sed -n "/$input/p" local.conf | head -1)
-        echo "$line"
-	
-	'''
+	def testParam = checkBox("opt", // name
+                "opt1,opt2,opt3", // values
+                "opt1", //default value
+                0, //visible item cnt
+                "Multi-select", // description
+                )
+
+	properties([parameters([testParam])])
+
+	node {
+  	  echo "${params.opt}"
+	}
 	
       	}  
     }
