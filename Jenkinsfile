@@ -15,14 +15,14 @@ pipeline {
                                           name: 'Feature')]
         echo "Entered feature is "
 	echo "${env.feature}"
-	input=${env.feature}
-	echo "$input"
+	//input=${env.feature}
+	//echo "$input"
 	
 	dir("/home/lakshmi/test/local") {
         sh '''#!/bin/bash
 	
 	array=()
-	IFS=';' read -ra array <<< "${env.feature}"
+	IFS='+' read -ra array <<< "${env.feature}"
 	for i in "${ADDR[@]}"; do
   		echo "$i"
 	done
