@@ -28,6 +28,8 @@ pipeline {
 	IFS='+' read -ra array <<< $input
 	for i in "${array[@]}"; do
   		echo "$i"
+		line=$(sed -n "/$i/p" local.conf | head -1)
+        	echo "$line"
 	done
 	
 	'''
