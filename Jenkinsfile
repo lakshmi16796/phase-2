@@ -15,13 +15,14 @@ pipeline {
                                           name: 'Feature')]
         echo "Entered feature is "
 	echo "${env.feature}"
-	input=$(printenv feature)
-	echo "your input"
-	echo "$input"
+	
 
 	
 	dir("/home/lakshmi/test/local") {
         sh '''#!/bin/bash
+	input=$(printenv feature)
+	echo "your input"
+	echo "$input"
 	
 	array=()
 	IFS='+' read -ra array <<< $input
