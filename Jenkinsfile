@@ -29,6 +29,7 @@ pipeline {
         line=$(sed -n "/$input/p" local.conf | head -1)
         echo "$line"
 	
+	'''
 	
       	}  
     }
