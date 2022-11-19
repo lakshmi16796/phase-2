@@ -9,12 +9,12 @@ pipeline {
         
         script {
 	 		       
-	def userInput = input(id: 'userInput', message: 'Merge to?',
-             parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
-                description:'describing choices', name:'nameChoice', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
-             ])
-
-            println(userInput);
+	env.feature = input message: 'Please enter the feature you want to build with',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Feature')]
+        echo "Entered feature is "
+	echo "${env.feature}"
       	}  
     }
   }
