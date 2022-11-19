@@ -18,7 +18,7 @@ pipeline {
 	
 
 	
-	dir("/home/lakshmi/test/local") {
+	dir("/home/lakshmi/dell_pods/poky/build/conf")  {
         sh '''#!/bin/bash
 	input=$(printenv feature)
 	echo "your input"
