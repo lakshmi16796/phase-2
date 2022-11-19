@@ -39,6 +39,18 @@ pipeline {
 		lines=$(grep -rin $i | head -1 | awk '{print $1}' | cut -d# -f 2)
 		echo "Number of lines to edit is"
 		echo "$lines"
+		
+		#Enabling the mentioned feature for build in local.conf 
+		sum=$n
+		for (( x=1 ; x<=$lines ; x++ )); 
+		do
+			echo "iterator is"	
+	  		echo "$x"
+			sum=$(($sum + 1))
+			echo "$sum"
+    			sed -i "$sum s/#//" local.conf
+		
+		done
 	done
 	
 	'''
