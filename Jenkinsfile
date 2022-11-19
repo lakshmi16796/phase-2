@@ -82,13 +82,13 @@ pipeline {
 		echo "$lines"
 		
 		#Enabling the mentioned feature for build in local.conf 
-		sum=$n
+		sum1=$n
 		for (( x=1 ; x<=$lines ; x++ )); 
 		do
 			echo "iterator is"	
 	  		echo "$x"
 			sum1=$(($sum1 + 1))
-			echo "$sum"
+			echo "$sum1"
     			sed -i "$sum1 s/^/#/" local.conf
 		done
 	done
