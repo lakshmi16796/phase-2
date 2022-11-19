@@ -23,7 +23,7 @@ pipeline {
         sh '''#!/bin/bash
 	
 	array=()
-	IFS='+' read -ra array <<< "${env.feature}"
+	IFS='+' read -ra array <<< $env.feature
 	for i in "${ADDR[@]}"; do
   		echo "$i"
 	done
