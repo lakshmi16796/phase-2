@@ -17,12 +17,18 @@ pipeline {
 	echo "${env.feature}"
 	input=${env.feature}
 	echo "$input"
-		
+	
+	dir("/home/lakshmi/test/local") {
+        sh '''#!/bin/bash
+	
 	array=()
 	IFS='+' read -a array <<< $input
 	for i in "${array[@]}"; do
   		echo "$i"
 	done
+	
+	'''
+	}
       	}  
     }
   }
