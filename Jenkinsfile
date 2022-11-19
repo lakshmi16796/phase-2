@@ -18,8 +18,9 @@ pipeline {
 	input=${env.feature}
 	echo "$input"
 		
-	IFS='+' read -ra ADDR <<< "$input"
-	for i in "${ADDR[@]}"; do
+	array=()
+	IFS='+' read -a array <<< $input
+	for i in "${array[@]}"; do
   		echo "$i"
 	done
       	}  
