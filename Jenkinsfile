@@ -15,6 +15,11 @@ pipeline {
                                           name: 'Feature')]
         echo "Entered feature is "
 	echo "${env.feature}"
+		
+	IFS='+' read -ra ADDR <<< "${env.feature}"
+	for i in "${ADDR[@]}"; do
+  		echo "$i"
+	done
       	}  
     }
   }
