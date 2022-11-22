@@ -25,7 +25,7 @@ pipeline {
 	echo "$input"
 	
 	array=()
-	IFS='+,' read -ra array <<< $input
+	IFS='+, ' read -ra array <<< $input
 	for i in "${array[@]}"; do
   		echo "$i"
 		
