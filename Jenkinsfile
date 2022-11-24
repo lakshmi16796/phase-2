@@ -32,7 +32,7 @@ pipeline {
 		line=$(sed -n "/$i/p" local.conf | head -1)
         	echo "$line"
 		
-		test=$(grep -rn $i)
+		test=$(grep -rn $i | head -1)
 		echo "testing"
 		echo "$test"
 		
