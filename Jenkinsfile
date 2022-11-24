@@ -29,12 +29,8 @@ pipeline {
 	for i in "${array[@]}"; do
   		echo "$i"
 		
-		line=$(sed -n "/$i/p" local.conf | head -1 | awk '{print $1 }')
+		line=$(sed -n "/$i/p" local.conf | head -1)
         	echo "$line"
-		
-		test=$(grep -rn $i | head -1)
-		echo "testing"
-		echo "$test"
 		
 		n=$(grep -rn $i | head -1 | awk '{print $1 }' | cut -d: -f 2)
 		echo "Line number is"
