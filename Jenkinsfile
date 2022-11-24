@@ -32,13 +32,14 @@ pipeline {
 		line=$(sed -n "/$i/p" local.conf | head -1)
         	echo "$line"
 		
-		n=$(grep -rin $i | head -1 | awk '{print $1 }' | cut -d: -f 2)
-		echo "Line number is"
-		echo "$n"
-		
 		test=$(grep -rn $i)
 		echo "testing"
 		echo "$test"
+		
+		n=$(grep -rn $i | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		echo "Line number is"
+		echo "$n"
+		
 		lines=$(grep -rn $i | head -1 | awk '{print $1}' | cut -d# -f 2)
 		echo "Number of lines to edit is"
 		echo "$lines"
