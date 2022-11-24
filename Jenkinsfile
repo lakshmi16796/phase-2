@@ -36,6 +36,9 @@ pipeline {
 		echo "Line number is"
 		echo "$n"
 		
+		test=$(grep -rn $i)
+		echo "testing"
+		echo "$test"
 		lines=$(grep -rn $i | head -1 | awk '{print $1}' | cut -d# -f 2)
 		echo "Number of lines to edit is"
 		echo "$lines"
