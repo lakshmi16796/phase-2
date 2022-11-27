@@ -33,7 +33,7 @@ pipeline {
         	echo "$line"
 		
 		n=$(grep -rin $i | head -1 | awk '{print $1 }' | cut -d: -f 2)
-		test=$(grep -rin $line | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		test=$(grep -rn $line | head -1 | awk '{print $1 }' | cut -d: -f 2)
 		echo "test"
 		echo "$test"
 		echo "Line number is"
