@@ -29,13 +29,13 @@ pipeline {
 	for i in "${array[@]}"; do
   		echo "$i"
 		
-		line=$(sed -n "/$i/p" local.conf | head -1)
-        	echo "$line"
+		#line=$(sed -n "/$i/p" local.conf | head -1)
+        	#echo "$line"
 		
 		n=$(grep -rin $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 1)
-		#test=$(grep -rin $i local.conf | head -1)
-		#echo "test"
-		#echo "$test"
+		test=$(grep -rin $i local.conf | head -1)
+		echo "test"
+		echo "$test"
 		echo "Line number is"
 		echo "$n"
 		
