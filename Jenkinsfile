@@ -5,9 +5,14 @@ pipeline {
 
     stage ("Edit")
     {
+      extendedChoice defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
+	      name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'Docke,Xen,QT', visibleItemCount: 5
+                }
       steps {
         
         script {
+		
+        echo "Selected feature is ${Feature}"
 	 		       
 	env.feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
