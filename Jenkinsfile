@@ -20,7 +20,7 @@ pipeline {
 	echo "Selected feature is ${Feature}"
         script {
 		 		       
-	//env.feature = input message: 'Please enter the feature you want to build with',
+	env.feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]
