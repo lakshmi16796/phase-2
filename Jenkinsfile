@@ -10,7 +10,7 @@ pipeline {
 		message "Please select a Feature for build"    
 	    	parameters {
 		    extendedChoice defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
-	      name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'Docke,Xen,QT', visibleItemCount: 5
+	      name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5
                 }
 	    }
 	    
