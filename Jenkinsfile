@@ -68,10 +68,10 @@ pipeline {
 	for i in "${array[@]}"; do
   		echo "$i"
 		
-		line1=$(sed -n "/$i/p" local.conf | head -1)
-        	echo "$line1"
+		#line1=$(sed -n "/$i/p" local.conf | head -1)
+        	#echo "$line1"
 		
-		n1=$(grep -rin $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		n1=$(grep -rin $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 1)
 		test=$(grep -rin $i local.conf | head -1)
 		echo "test"
 		echo "$test"
