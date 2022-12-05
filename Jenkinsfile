@@ -16,7 +16,7 @@ pipeline {
 	        echo "Selected feature is ${Feature}"
 	    
       steps {	    
-	  script{
+	  script
          {
         	       			       
 	env.feature = input message: 'Please enter the feature you want to build with',
