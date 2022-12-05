@@ -67,7 +67,7 @@ pipeline {
 	#rm -rf bitbake.lock
 	
 	
-	bitbake -c clean core-image-pods
+	#bitbake -c clean core-image-pods
 	bitbake core-image-pods
 	
 	cd /home/lakshmi/dell_pods/poky/build/conf
