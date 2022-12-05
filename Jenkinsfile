@@ -9,8 +9,8 @@ pipeline {
 	      
 	      input message: "Please select a Feature for build"    
 	      parameters: [
-		   		extendedChoice defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
-	     			name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5
+		   		extendedChoice( defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
+	     			name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5)
                		  ]
 	       echo "Selected feature is ${Feature}"
 	      
