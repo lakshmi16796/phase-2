@@ -24,6 +24,7 @@ pipeline {
                                           description: '',
                                           name: 'Feature')]
 	}
+      }
 	   
         echo "Entered feature is "
 	echo "${env.feature}"
