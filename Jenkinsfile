@@ -7,29 +7,29 @@ pipeline {
 	    
       steps {	
 	      
-	      input message: "Please select a Feature for build" ,   
+	   env.Feature = input message: "Please select a Feature for build" ,   
 	      parameters: [
 		   		extendedChoice( defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
 	     			name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5)
                		  ]
-	       echo "Selected feature is ${Feature}"
+	    echo "Selected feature is ${Feature}"
 	      
-	  script
+	 script
          {
         	       			       
-	env.feature = input message: 'Please enter the feature you want to build with',
+	//env.feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Feature')]	    
 	   
         echo "Entered feature is "
-	echo "${env.feature}"
+	echo "${env.Feature}"
 	
 
 	
 	dir("/home/lakshmi/dell_pods/poky/build/conf")  {
         sh '''#!/bin/bash
-	input=$(printenv feature)
+	input=$(printenv Feature)
 	echo "your input"
 	echo "$input"
 	
