@@ -2,7 +2,14 @@ pipeline {
   agent any
   stages {
 	  
-
+	 input
+	  		{
+				message "Please select a Feature for build"    
+	    			parameters {
+		   			 extendedChoice defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
+	     				 name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5
+               		 }
+	  
     stage ("Edit")
     {
 	    
@@ -12,13 +19,10 @@ pipeline {
         
 	echo "Selected feature is ${Feature}"
         			       
-	env.feature = input
-	    		{
-				message "Please select a Feature for build"    
-	    			parameters {
-		   			 extendedChoice defaultValue: 'Docker', description: '', descriptionPropertyValue: 'Docke,Xen,QT', multiSelectDelimiter: ',', 
-	     				 name: 'Feature', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'Docker,Xen,QT,Docker+Xen,Docker+QT,Xen+QT,Docker+Xen+QT', visibleItemCount: 5
-               		 }
+	env.feature = input message: 'Please enter the feature you want to build with',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Feature')]
 	}
 	   
         echo "Entered feature is "
