@@ -5,10 +5,8 @@ pipeline {
     stage ("Edit")
     {
 	    
-      steps {		    
+      steps {	
 	      
-	  script
-         {
 		 input{
 	  	
 		message "Please select a Feature for build"    
@@ -19,6 +17,9 @@ pipeline {
 	         }
 		         
 	        echo "Selected feature is ${Feature}"
+	      
+	  script
+         {
         	       			       
 	env.feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
