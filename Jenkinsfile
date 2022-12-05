@@ -60,16 +60,36 @@ pipeline {
 		done
 	done
 	
-	cd /home/lakshmi/dell_pods/poky
-	pwd
-	source oe-init-build-env
-	pwd
-	#rm -rf bitbake.lock
 	
+	cd /home/lakshmi/dell_pods/poky/build/conf
+	pwd
+	echo "Restroing local.conf"
 	
-	#bitbake -c clean core-image-pods
-	bitbake core-image-pods
-
+	for i in "${array[@]}"; do
+  		echo "$i"
+		
+		line1=$(sed -n "/$i/p" local.conf | head -1)
+        	echo "$line1"
+		
+		n1=$(grep -rin $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		echo "Line number is"
+		echo "$n1"
+		
+		lines1=$(grep -rin $i local.conf | head -1 | awk '{print $1}' | cut -d# -f 2)
+		echo "Number of lines to edit is"
+		echo "$lines1"
+		
+		#Disabling the mentioned feature for build in local.conf 
+		sum1=$n1
+		for (( x=1 ; x<=$lines1 ; x++ )); 
+		do
+			echo "iterator is"	
+	  		echo "$x"
+			sum1=$(($sum1 + 1))
+			echo "$sum1"
+    			sed -i "$sum1 s/^/#/" local.conf
+		done
+	done
         '''
 	}
       	}  
