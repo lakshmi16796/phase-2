@@ -80,15 +80,15 @@ pipeline {
 		line1=$(sed -n "/$i/p" local.conf | head -1)
         	echo "$line1"
 		
-		n1=$(grep -rn $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 2)
+		n1=$(grep -rin $i local.conf | head -1 | awk '{print $1 }' | cut -d: -f 2)
 		echo "Line number is"
 		echo "$n1"
 		
-		lines1=$(grep -rn $i local.conf | head -1 | awk '{print $1}' | cut -d# -f 2)
+		lines1=$(grep -rin $i local.conf | head -1 | awk '{print $1}' | cut -d# -f 2)
 		echo "Number of lines to edit is"
 		echo "$lines1"
 		
-		#Enabling the mentioned feature for build in local.conf 
+		#Disnabling the mentioned feature for build in local.conf 
 		sum1=$n1
 		for (( x=1 ; x<=$lines1 ; x++ )); 
 		do
