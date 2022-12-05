@@ -1,10 +1,15 @@
 pipeline {
   agent any
-  stages {
-  
+  stages 
+{  
     stage ("Edit")
     {
-	    input{
+	    
+      steps {		    
+	      
+	  script
+         {
+		 input{
 	  	
 		message "Please select a Feature for build"    
 	    	parameters {
@@ -14,10 +19,6 @@ pipeline {
 	         }
 		         
 	        echo "Selected feature is ${Feature}"
-	    
-      steps {	    
-	  script
-         {
         	       			       
 	env.feature = input message: 'Please enter the feature you want to build with',
                              parameters: [string(defaultValue: '',
