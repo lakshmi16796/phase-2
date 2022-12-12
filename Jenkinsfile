@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages 
 {  
-    stage ("Edit")
+    stage ("User Input Stage")
     {
 	    
       steps {	 
